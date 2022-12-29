@@ -1,5 +1,26 @@
 {
-  "users": [{"id": 1, "name": "Sohaib Salman"}],
+  "users": [
+    {
+      "id": 1,
+      "name": "Sohaib Salman"
+    },
+    {
+      "name": "Misty Gutkowski",
+      "id": 2
+    },
+    {
+      "name": "Kelley Brakus",
+      "id": 3
+    },
+    {
+      "name": "Jodi Schuppe",
+      "id": 4
+    },
+    {
+      "name": "Fannie Turcotte",
+      "id": 5
+    }
+  ],
   "albums": [],
   "photos": []
 }
