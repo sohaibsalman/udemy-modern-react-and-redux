@@ -21,6 +21,48 @@
       "id": 5
     }
   ],
-  "albums": [],
-  "photos": []
+  "albums": [
+    {
+      "id": 41,
+      "title": "Hiking Trip",
+      "userId": 1
+    },
+    {
+      "title": "Incredible Fresh Salad",
+      "userId": 1,
+      "id": 42
+    },
+    {
+      "title": "Tasty Frozen Mouse",
+      "userId": 2,
+      "id": 44
+    },
+    {
+      "title": "Luxurious Frozen Ball",
+      "userId": 2,
+      "id": 48
+    },
+    {
+      "title": "Gorgeous Plastic Shirt",
+      "userId": 1,
+      "id": 49
+    }
+  ],
+  "photos": [
+    {
+      "albumId": 41,
+      "url": "https://loremflickr.com/100/100/sports?lock=5920",
+      "id": 1
+    },
+    {
+      "albumId": 41,
+      "url": "https://loremflickr.com/100/100/people?lock=80554",
+      "id": 3
+    },
+    {
+      "albumId": 41,
+      "url": "https://loremflickr.com/100/100/transport?lock=81463",
+      "id": 6
+    }
+  ]
 }
