@@ -29,10 +29,17 @@ function AlbumsList({ user }) {
 
   return (
     <div>
-      <Button className="mb-2" onClick={handleClick}>
-        + Add Album
-      </Button>
-      {content}
+      <div className="m-2 flex flex-row items-center justify-between">
+        <h3 className="text-lg font-bold">Albums for {user.name}</h3>
+        <Button
+          loading={result.isLoading}
+          className="mb-2"
+          onClick={handleClick}
+        >
+          + Add Album
+        </Button>
+      </div>
+      <div>{content}</div>
     </div>
   );
 }
