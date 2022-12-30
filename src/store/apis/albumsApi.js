@@ -17,7 +17,7 @@ const albumsApi = createApi({
       addAlbum: builder.mutation({
         // invalidatesTags will allow the the resultant data to be marked as un-sync
         invalidatesTags: (result, error, user) => {
-          return [{ type: "Album", id: user.id }];
+          return [{ type: "UserAlbums", id: user.id }];
         },
         query: (user) => {
           return {
@@ -33,7 +33,11 @@ const albumsApi = createApi({
       fetchAlbums: builder.query({
         // provideTags marks the resultant data to be un-sync when used in mutation
         providesTags: (result, error, user) => {
-          return [{ type: "Album", id: user.id }];
+          const tags = result.map((album) => {
+            return { type: "Album", id: album.id };
+          });
+          tags.push({ type: "UserAlbums", id: user.id });
+          return tags;
         },
         query: (user) => {
           return {
@@ -43,9 +47,24 @@ const albumsApi = createApi({
           };
         },
       }),
+      removeAlbum: builder.mutation({
+        invalidatesTags: (result, error, album) => {
+          return [{ type: "Album", id: album.id }];
+        },
+        query: (album) => {
+          return {
+            url: `/albums/${album.id}`,
+            method: "DELETE",
+          };
+        },
+      }),
     };
   },
 });
 
-export const { useFetchAlbumsQuery, useAddAlbumMutation } = albumsApi;
+export const {
+  useFetchAlbumsQuery,
+  useAddAlbumMutation,
+  useRemoveAlbumMutation,
+} = albumsApi;
 export { albumsApi };
