@@ -15,6 +15,10 @@ const albumsApi = createApi({
   endpoints: (builder) => {
     return {
       addAlbum: builder.mutation({
+        // invalidatesTags will allow the the resultant data to be marked as un-sync
+        invalidatesTags: (result, error, user) => {
+          return [{ type: "Album", id: user.id }];
+        },
         query: (user) => {
           return {
             url: "/albums",
@@ -27,6 +31,10 @@ const albumsApi = createApi({
         },
       }),
       fetchAlbums: builder.query({
+        // provideTags marks the resultant data to be un-sync when used in mutation
+        providesTags: (result, error, user) => {
+          return [{ type: "Album", id: user.id }];
+        },
         query: (user) => {
           return {
             url: "/albums",
