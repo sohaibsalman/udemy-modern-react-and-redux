@@ -1,10 +1,11 @@
 import React from "react";
 import { GoTrashcan } from "react-icons/go";
 
-import Button from "./Button";
-import ExpandablePanel from "./ExpandablePanel";
 import { removeUser } from "../store";
 import { useThunk } from "../hooks/use-thunk";
+import Button from "./Button";
+import ExpandablePanel from "./ExpandablePanel";
+import AlbumsList from "./AlbumsList";
 
 function UsersListItem({ user }) {
   const [doRemoveUser, isLoading, error] = useThunk(removeUser);
@@ -23,7 +24,11 @@ function UsersListItem({ user }) {
     </React.Fragment>
   );
 
-  return <ExpandablePanel header={header}>CONTENT!!</ExpandablePanel>;
+  return (
+    <ExpandablePanel header={header}>
+      <AlbumsList user={user} />
+    </ExpandablePanel>
+  );
 }
 
 export default UsersListItem;
